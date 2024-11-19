@@ -17,16 +17,13 @@
         </div>
         <div class="categories">
             <select class="category-select">
-                <option value=""></span>Todas las categorías</option>
-                <option value="lacteos">Lácteos</option>
-                <option value="carnes">Mariscos</option>
-                <option value="vegetales">Vegetales</option>
+                <!-- espacio especial para categorias -->
             </select>
         </div>
 
         <div class="search">
             <!-- <i data-feather="search"></i> -->
-            <input type="text" placeholder="Buscar productos...">
+            <input type="text" id="search-input" placeholder="Buscar productos...">
             <button class="search-button"><i data-feather="search"></i></button> 
         </div>
 
@@ -35,8 +32,8 @@
                 <i data-feather="shopping-cart"></i>
                 <span class="cart-count">0</span>
             </button>
-            
         </div>
+
         <div class="user">
             <button class="user-button">
                 <a href="#" class="avatar"><img src="images/avatar.jpg" alt="Foto de Perfil"></a>
@@ -44,66 +41,11 @@
         </div>
     </header>
     <hr>
-    <main class="main">
 
-        <section class="product">
-            <img src="images/huevos.jpg" alt="Huevos">
-            <h3>Eggs</h3>
-            <p class="etiqueta">Categoría: <span>Lácteos</span></p>
-            <p>Precio: S/ 8.99</p>
-            <button>Agregar al carrito</button>
-        </section>
-
-        <section class="product">
-            <img src="images/carne.jpg" alt="Carne">
-            <h3>Fish Steak</h3>
-            <p>Categoría: <span>Carnes</span></p>
-            <p>Precio: S/ 14.99</p>
-            <button>Agregar al carrito</button>
-        </section>
-
-        <section class="product">
-            <img src="images/pepinillos.jpg" alt="Pepinillos">
-            <h3>Green Bell Pepper</h3>
-            <p>Categoría: <span>Vegetales</span></p>
-            <p>Precio: S/ 1.29</p>
-            <button>Agregar al carrito</button>
-        </section>
-
-        <section class="product">
-            <img src="images/leche.jpg" alt="Leche">
-            <h3>Milk</h3>
-            <p>Categoría: <span>Lácteos</span></p>
-            <p>Precio: S/ 4.50</p>
-            <button>Agregar al carrito</button>
-        </section>
-
-        <section class="product">
-            <img src="images/salmon.jpg" alt="Salmon">
-            <h3>Salmon</h3>
-            <p>Categoría: <span>Mariscos</span></p>
-            <p>Precio: S/ 25.00</p>
-            <button>Agregar al carrito</button>
-        </section>
-
-        
-        <section class="product">
-            <img src="images/tomates.jpg" alt="Tomato"">
-            <h3>Tomato</h3>
-            <p>Categoría: <span>Vegetales</span></p>
-            <p>Precio: S/ 1.50</p>
-            <button>Agregar al carrito</button>
-        </section>
-
-        <section class="product">
-            <img src="images/logo.png" alt="Cacao">
-            <h3>Cacao</h3>
-            <p>Categoría: <span>Frutas</span></p>
-            <p>Precio: S/ 7.50</p>
-            <button>Agregar al carrito</button>
-        </section>
-
+    <main class="main render-products">
+        <!-- espacio especial para productos -->
     </main>
+    
     <hr>
     <footer class="footer">
         <p>Síguenos en nuestras redes sociales:</p>
@@ -119,5 +61,6 @@
     <script>
         feather.replace();
     </script>
+    <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
