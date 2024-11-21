@@ -1,3 +1,5 @@
+// cada branch solo debe tener el c'odigo que se revisar'a veo que en este branch tambi'en se encuentra js-bootcamp
+
 import './style.css'
 
 import { Cart } from "./entities/cart";
@@ -46,8 +48,10 @@ class App {
 
     private initEventListeners() {
         const searchInput = document.getElementById("search-input");
-        if (searchInput)
-            searchInput.addEventListener("keyup", (event) => this.handleSearch(event));
+        // no est'a mal poner llaves para mejorar la legibilidad, finalmente el c'odigo al ser traspilado, minificado y ofuscado se eliminan o agregan seg'un lo que se configure en el empaquetador 
+        if (searchInput) {
+          searchInput.addEventListener("keyup", (event) => this.handleSearch(event));
+        }
 
         const categorySelect = document.querySelector(".category-select");
         if (categorySelect)
