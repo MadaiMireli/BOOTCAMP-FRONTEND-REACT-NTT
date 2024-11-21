@@ -46,7 +46,7 @@ export class Product {
       category.textContent = `Categoría: ${product.category}`;
 
       const price = document.createElement("p");
-      price.textContent = `Precio: s/. ${product.price}`;
+      price.textContent = `Precio: s/ ${product.price}`;
 
       const buttonAddToCart = document.createElement("button");
       buttonAddToCart.textContent = "Agregar al carrito";
