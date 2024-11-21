@@ -10,6 +10,7 @@ export class Product {
     this.cart = cart;
   }
 
+  // esta url https://dummyjson.com podr'ia estar en una variable global ya que se repite
   async fetchProducts() {
     try {
       const { products } = await fetch("https://dummyjson.com/products").then(
