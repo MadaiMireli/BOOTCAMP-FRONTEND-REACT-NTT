@@ -1,0 +1,38 @@
+.resume__send{
+    width: 100%;
+    margin-top: 20px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.resume__send .container__input{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.resume__send .container__input label{
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.resume__send .container__input input{
+    width: 100%;
+    padding: 6px;
+    border: 1px solid blue;
+}
+
+.resume__send .send__resumen {
+    width: 100%;
+    background-color: blue;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+}

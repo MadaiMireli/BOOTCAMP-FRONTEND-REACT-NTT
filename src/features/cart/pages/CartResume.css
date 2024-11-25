@@ -1,0 +1,39 @@
+.cart__resume {
+    width: 80%;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f4f4f4;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+td img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* Mantiene el contenido visible */
+    border-radius: 5px;
+    /* Opcional: bordes redondeados */
+}
+
+button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+h3 {
+    text-align: right;
+}
