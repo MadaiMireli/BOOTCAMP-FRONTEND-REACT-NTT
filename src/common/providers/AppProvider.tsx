@@ -1,25 +1,22 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useReducer } from 'react';
 
 import { AppContext } from '../context/AppContext';
-import { Product } from '../../features/product/interfaces';
+import { productReducer } from '../stateManage/productReducer';
 
 interface Props {
     children: ReactNode
 }
 export const AppProvider = ({ children }: Props) => {
 
-    const [ products, setProducts ] = useState<Product[]>([]);
-    const [ cart, setCart ] = useState<string[]>([]);
-    const [ loading, setLoading ] = useState<boolean>(false);
-
-    const onLoadProducts = (products: Product[]) => {
-        setLoading(false);
-        setProducts(products)
-        setLoading(true);
-    }
+    const [state, dispatch] = useReducer(productReducer, {
+      products: [],
+      cart: [],
+      productsFiltered: [],
+    });
 
     return (
-        <AppContext.Provider value={{ loading, products, cart, setProducts: onLoadProducts }} >
+        <AppContext.Provider 
+            value={{ state, dispatch }} >
             {children}
         </AppContext.Provider>
     )

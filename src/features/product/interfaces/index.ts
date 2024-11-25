@@ -3,3 +3,4 @@ export * from './responses/category';
 
 export * from './product';
 export * from './category';
+export * from './cart';

@@ -7,21 +7,18 @@ import CardProduct from "./CardProduct"
 
 const ProductsPages = () => {
 
-  const { products, setProducts } = useAppContext();
+  const { state, dispatch } = useAppContext();
 
-  // window.onload
   useEffect(() => {
-
     fetchData();
-
   }, []);
 
   const fetchData = async () => {
     try {
 
-      const response: ProductApiResponse = await fetch("https://dummyjson.com/products").then(response => response.json());
+      const response: ProductApiResponse = await fetch(`${import.meta.env.VITE_BASE_URL}/products`).then(response => response.json());
 
-      setProducts(response.products.map(mapperProductResponseToProduct));
+      dispatch({ type: 'LOAD_PRODUCTS', payload: response.products.map(mapperProductResponseToProduct) })
 
     } catch (error) {
       console.error(error);
@@ -31,9 +28,14 @@ const ProductsPages = () => {
   return (
     <main className="main">
       {
-        products.map(product => (
+        state.productsFiltered.map(product => (
           <CardProduct key={product.id} data={product} />
         ))
+      }
+      {
+        state.productsFiltered.length === 0 && (
+          <h2>No hay productos</h2>
+        )
       }
     </main>
   )
