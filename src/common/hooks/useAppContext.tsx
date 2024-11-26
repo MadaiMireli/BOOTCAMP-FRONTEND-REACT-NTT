@@ -9,6 +9,13 @@ export const useAppContext = () => {
         throw new Error('error al cargar el custom hook de context');
     }
 
-    return context;
+    return {
+        ...context,
+        state: {
+            products: context.state.products || [],
+            cart: context.state.cart || [],
+            productsFiltered: context.state.productsFiltered || []
+        }
+    };
 
 }

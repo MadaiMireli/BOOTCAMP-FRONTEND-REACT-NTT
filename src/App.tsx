@@ -1,19 +1,28 @@
-import { Header, Footer } from './common/components';
+import { RouterProvider, createBrowserRouter } from 'react-router';
+import { AppLayout } from './common/components';
 
-import { AppProvider } from './common/providers/AppProvider';
+import { ProductsPage } from './features/product/pages';
+import { CartPage } from './features/cart/pages';
 
-import ProductsPages from './features/product/pages/ProductsPages';
+const router = createBrowserRouter([
+  {
+    path: '',
+    element: <AppLayout />,
+    children: [
+      {
+        path: '',
+        element: <ProductsPage />
+      },
+      {
+        path: 'cart',
+        element: <CartPage />
+      }
+    ]
+  }
+])
 
 const App = () => {
-
-  return (
-    <AppProvider>
-      <Header />
-      <ProductsPages />
-      <Footer />
-    </AppProvider>
-
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -287,7 +287,7 @@ hr {
     font-size: 20px;
   }
 
-  .main{
+  .main {
     margin-top: 130px;
   }
 }
@@ -313,7 +313,7 @@ hr {
     font-size: 18px;
   }
 
-  .main{
+  .main {
     margin-top: 130px;
   }
 }
@@ -347,7 +347,7 @@ hr {
     font-size: 18px;
   }
 
-  .main{
+  .main {
     margin-top: 180px;
   }
 }
@@ -385,7 +385,18 @@ hr {
     order: 4;
   }
 
-  .main{
+  .main {
     margin-top: 200px;
   }
+}
+
+.container {
+  margin-top: 100px !important;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }

@@ -6,7 +6,7 @@ interface Props {
   data: Product
 }
 
-const CardProduct: FC<Props> = ({ data }) => {
+export const CardProduct: FC<Props> = ({ data }) => {
 
   const { dispatch } = useAppContext();
 
@@ -24,5 +24,3 @@ const CardProduct: FC<Props> = ({ data }) => {
     </div>
   )
 }
-
-export default CardProduct

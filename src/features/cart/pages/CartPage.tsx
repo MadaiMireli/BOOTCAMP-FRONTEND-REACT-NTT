@@ -1,15 +1,17 @@
-import CartResume from "./CartResume"
-import FormSend from "./FormSend"
+import { CartSummary, Form } from "../components";
 
 const CartPage = () => {
   return (
-    <div className="cart__page" >
-      <h2>Resumen de Compra</h2>
-      <CartResume/>
-      <hr />
-      <FormSend/>
-    </div>
-  )
-}
-  
-export default CartPage
+    <>
+      <div className="container">
+        <CartSummary />
+        <hr />
+      </div>
+      <div className="container">
+        <Form />
+      </div>
+    </>
+  );
+};
+
+export default CartPage;

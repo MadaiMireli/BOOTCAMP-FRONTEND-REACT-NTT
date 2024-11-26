@@ -27,3 +27,13 @@ featuere/react-fundamentos
 - Uso de Context y Reducer para manejar los estados y cambios entre componentes.
 - Para ejecutar el proyecto usar: npm run dev.
 - Agregar la ruta de la Api base en el archivo .env.template para el consumo de apis.
+
+feature/react-implementacion
+
+- Se agregó el json de distritos de Lima.
+- Para la navegación se usa react router y dom. 
+- Uso de Layout para intercambiar el contenido en Outlet, Header y Footer son fijos.
+- Se está usando 2 reducer( product y cart), para poder manejar ambos combineReducers.
+- Para tener los cambios o dependencia agregada, ejecutar el comando: npm i
+- Para ejecutar el proyecto usar: npm run dev.
+- Validaciones en el form, para celular solo numeros; nombres y apellidos solo letras.

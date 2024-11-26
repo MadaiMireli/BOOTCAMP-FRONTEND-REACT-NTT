@@ -1,5 +1,7 @@
 import { SearchNormal1, ShoppingCart } from "iconsax-react";
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from 'react-router';
+
 import { useAppContext } from "../hooks/useAppContext";
 import {
   Category,
@@ -12,6 +14,8 @@ import {
 export const Header = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const { state, dispatch } = useAppContext();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
@@ -29,7 +33,9 @@ export const Header = () => {
   };
 
   const handleChangeCategory = async (category: string) => {
-    let urlToConsult = `${import.meta.env.VITE_BASE_URL}/products/category/${category}`;
+    let urlToConsult = `${
+      import.meta.env.VITE_BASE_URL
+    }/products/category/${category}`;
 
     try {
       if (!category) {
@@ -54,6 +60,8 @@ export const Header = () => {
     dispatch({ type: "FILTERED_PRODUCTS", payload: query });
   };
 
+  const handleGoToCart = () => navigate('/cart');
+
   const sizeProductsInCart = state.cart.reduce(
     (total, item) => total + item.quantity,
     0
@@ -67,7 +75,7 @@ export const Header = () => {
             src="https://res.cloudinary.com/dehba8l6b/image/upload/v1732413855/logoVN_kf1fdr.png"
             alt="Logo Viva Natura"
           />
-          <a href="#">VIVA NATURA</a>
+          <Link to="/">VIVA NATURA</Link>
         </div>
         <div className="header__category">
           <select
@@ -96,7 +104,7 @@ export const Header = () => {
         </div>
 
         <div className="header__cart">
-          <button className="header__cart--button">
+          <button className="header__cart--button" onClick={handleGoToCart}>
             <ShoppingCart size={30} />
             <span className="header__cart--count">{sizeProductsInCart}</span>
           </button>
