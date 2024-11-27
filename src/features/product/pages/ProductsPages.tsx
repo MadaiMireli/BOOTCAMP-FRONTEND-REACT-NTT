@@ -17,6 +17,7 @@ const ProductsPages = () => {
   }, []);
 
   const fetchData = async () => {
+    // el componente products pages solo deber'ia renderizar los productos y leer la información del servicio no deber'ia tener l'ogica de llamada esa responsabilidad debe estar en otro archivo
     try {
       const response: ProductApiResponse = await fetch(
         `${import.meta.env.VITE_BASE_URL}/products`

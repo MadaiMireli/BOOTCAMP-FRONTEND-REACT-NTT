@@ -14,6 +14,7 @@ export const cartReducer = (
       if (isProduct) {
         return {
           ...state,
+          // usemos llaves para que sea m'as f'acil la lectura
           cart: state.cart.map((item) =>
             item.id === action.payload.id
               ? { ...item, quantity: item.quantity + 1 }
