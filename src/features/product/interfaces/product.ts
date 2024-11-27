@@ -8,6 +8,8 @@ export interface Product {
     image: string;
 }
 
+// no hay que mezclar interfaces con mappers
+
 export const mapperProductResponseToProduct = (response: ProductResponse): Product => {
     return {
         id: response.id,

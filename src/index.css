@@ -1,3 +1,4 @@
+/* lo ideal ser'ia que cada componente o p'agina tenga su propio archivo css asociado y al mismo nivel para que sea m'as f'acil la modificaci'on y no se mezcle todo en un solo css */
 :root {
   --primary-color: #286b9e;
   --secondary-color: #173674;

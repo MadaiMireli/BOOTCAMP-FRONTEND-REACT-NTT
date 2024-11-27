@@ -13,6 +13,7 @@ const rootReducer = combineReducers(productReducer, cartReducer);
 
 export const AppProvider = ({ children }: Props) => {
 
+    // esto deber'ia estar fuera para evitar redefinirse
     const initialState: IAppState = {
         products: [],
         cart: [],

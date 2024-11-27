@@ -23,6 +23,7 @@ export const Header = () => {
 
   const fetchData = async () => {
     try {
+      // esta llamada deber'ia estar en otro archivo
       const response: CategoryResponse[] = await fetch(
         `${import.meta.env.VITE_BASE_URL}/products/categories`
       ).then((response) => response.json());
@@ -33,6 +34,7 @@ export const Header = () => {
   };
 
   const handleChangeCategory = async (category: string) => {
+    // esta llamada deber'ia estar en otro archivo
     let urlToConsult = `${
       import.meta.env.VITE_BASE_URL
     }/products/category/${category}`;
@@ -60,6 +62,7 @@ export const Header = () => {
     dispatch({ type: "FILTERED_PRODUCTS", payload: query });
   };
 
+  // usemos un enum
   const handleGoToCart = () => navigate('/cart');
 
   const sizeProductsInCart = state.cart.reduce(
@@ -71,6 +74,7 @@ export const Header = () => {
     <>
       <div className="header">
         <div className="header__logo">
+          {/* no usar una imagen remota porque esta puede ser eliminada si no la podemos controlar */}
           <img
             src="https://res.cloudinary.com/dehba8l6b/image/upload/v1732413855/logoVN_kf1fdr.png"
             alt="Logo Viva Natura"

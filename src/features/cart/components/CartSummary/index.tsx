@@ -29,6 +29,7 @@ export const CartSummary = () => {
         </tbody>
       </table>
       <div className="total">
+        {/* si bien se puede intuir para que se usa el 100 no deben haber n'umeros m'agicos, lo ideal ser'ia encapsular esto en una funci'on o crear un utils que transforme n'umeros */}
         Total a pagar: S/. {Math.round(totalPrice * 100) / 100}
       </div>
     </>

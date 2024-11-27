@@ -5,6 +5,8 @@ export interface Category {
     name: string;
 }
 
+// no hay que mezclar interfaces con mappers
+
 export const mapperCategoryResponseToCategory = (category: CategoryResponse): Category => {
     return {
         id: category.slug,

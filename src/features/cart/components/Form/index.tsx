@@ -1,3 +1,4 @@
+// si bien valida el formulario si se ponen espacios en blanco al inicio, luego letras y se envia el endpoint recibe esta informaci'on con todo y espacios en blanco
 import { Modal } from "../../../../common/components";
 import { useDistricts, useForm } from "../../hooks";
 import "./Form.css";

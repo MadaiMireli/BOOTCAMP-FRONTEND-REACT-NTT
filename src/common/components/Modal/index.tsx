@@ -25,6 +25,7 @@ export const Modal: FC<Props> = ({ isOpen, onClose, title, description }) => {
         <p>{ description }</p>
         <button className="modal-close-btn" onClick={() => {
             onClose();
+            // usemos un enum
             navigate('/');
           }}>
           Cerrar

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAppContext } from "../../../common/hooks/useAppContext";
 
+// spanglish, hay que uniformizar el idioma
 type FormFields = {
   nombres: string;
   apellidos: string;
@@ -34,6 +35,7 @@ export const useForm = () => {
 
   const validateForm = () => {
     const newErrors: Partial<FormFields> = {};
+    // estos regex podr'ian estar en otro archivo para centralizarlos y usarlos en otro caso de uso
     const lettersRegex = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/;
     const numbersRegex = /^[0-9]+$/;
 
@@ -44,6 +46,7 @@ export const useForm = () => {
         newErrors[key as keyof FormFields] = "Campo Obligatorio";
       } else {
 
+        // no usemos el texto de manera directa debemos tipar estas validaciones para evitar errores al escribir
         if ((key === "nombres" || key === "apellidos") && !lettersRegex.test(value)) {
           newErrors[key as keyof FormFields] = "Solo se permiten letras";
         }
