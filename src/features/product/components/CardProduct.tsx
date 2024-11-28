@@ -1,3 +1,5 @@
+import "./CardProduct.css"
+
 import type { FC } from 'react';
 import type { Product } from '../interfaces';
 import { useAppContext } from '../../../common/hooks/useAppContext';

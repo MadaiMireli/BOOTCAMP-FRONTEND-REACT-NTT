@@ -1,0 +1,53 @@
+:root {
+    --primary-color: #286b9e;
+    --secondary-color: #173674;
+    --background-color: #fdfdfc;
+    --text-color: #173674;
+    --azulclaro: #044c73;
+    --azuloscuro: #04192a;
+}
+
+.footer {
+    text-align: center;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+.footer .footer__social {
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+}
+
+.footer .footer__social .footer__social--button {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    height: 50px;
+    width: 50px;
+    text-decoration: none;
+}
+
+.footer .footer__social .footer__social--button:hover {
+    background-color: var(--secondary-color);
+    border-radius: 100px;
+    color: var(--background-color);
+}
+
+.footer .footer__social .footer__social--button a {
+    color: var(--primary-color);
+    text-decoration: none;
+    align-self: center;
+}
+
+.footer .footer__social .footer__social--button a:hover {
+    color: var(--background-color);
+    text-decoration: none;
+    align-self: center;
+}
+
+hr {
+    margin: 10px 0;
+    border: 1px solid var(--secondary-color);
+  }
+  

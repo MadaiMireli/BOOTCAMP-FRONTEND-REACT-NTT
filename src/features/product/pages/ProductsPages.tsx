@@ -1,3 +1,5 @@
+import "./ProductsPages.css"
+
 import { useEffect } from "react";
 
 import { useAppContext } from "../../../common/hooks/useAppContext";

@@ -1,15 +1,16 @@
+import "./Header.css"
 import { SearchNormal1, ShoppingCart } from "iconsax-react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router';
 
-import { useAppContext } from "../hooks/useAppContext";
+import { useAppContext } from "../../hooks/useAppContext";
 import {
   Category,
   CategoryResponse,
   mapperCategoryResponseToCategory,
   ProductApiResponse,
   mapperProductResponseToProduct,
-} from "../../features/product/interfaces";
+} from "../../../features/product/interfaces";
 
 export const Header = () => {
   const [categories, setCategories] = useState<Category[]>([]);

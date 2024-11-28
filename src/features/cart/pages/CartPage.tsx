@@ -1,3 +1,5 @@
+import "./CartPage.css"
+
 import { CartSummary, Form } from "../components";
 
 const CartPage = () => {

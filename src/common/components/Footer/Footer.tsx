@@ -1,3 +1,4 @@
+import "./Footer.css"
 import { Facebook, Twitch, Youtube, Instagram } from "iconsax-react"
 
 export const Footer = () => {
@@ -10,7 +11,7 @@ export const Footer = () => {
         
         <div className="footer__social">
           <button className="footer__social--button"><a href="#"><Instagram size={30}/></a></button>
-          <button className="footer__social--button"><a href="#"><Facebook className="i" size={30}/></a></button>
+          <button className="footer__social--button"><a href="#"><Facebook size={30}/></a></button>
           <button className="footer__social--button"><a href="#"><Youtube size={30}/></a></button>
           <button className="footer__social--button"><a href="#"><Twitch size={30}/></a></button>
         </div>

@@ -1,0 +1,36 @@
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+    margin-top: 80px;
+}
+
+@media screen and (max-width:980px) {
+
+    .main {
+        margin-top: 130px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .main {
+        margin-top: 130px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+
+    .main {
+        margin-top: 180px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .main {
+        margin-top: 200px;
+    }
+}
