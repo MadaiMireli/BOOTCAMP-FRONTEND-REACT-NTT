@@ -20,36 +20,36 @@ export const Form = () => {
       <h2 className="form-title">Información de Envío</h2>
       <form className="shipping-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="nombres">Nombres</label>
+          <label htmlFor="firstName">Nombres</label>
           <input
             type="text"
-            id="nombres"
+            id="firstName"
             placeholder="Ingresa tus nombres"
-            value={formData.nombres}
+            value={formData.firstName}
             onChange={handleInputChange}
           />
-          {errors.nombres && <small className="error">{errors.nombres}</small>}
+          {errors.firstName && <small className="error">{errors.firstName}</small>}
         </div>
 
         <div className="form-group">
-          <label htmlFor="apellidos">Apellidos</label>
+          <label htmlFor="lastName">Apellidos</label>
           <input
             type="text"
-            id="apellidos"
+            id="lastName"
             placeholder="Ingresa tus apellidos"
-            value={formData.apellidos}
+            value={formData.lastName}
             onChange={handleInputChange}
           />
-          {errors.apellidos && (
-            <small className="error">{errors.apellidos}</small>
+          {errors.lastName && (
+            <small className="error">{errors.lastName}</small>
           )}
         </div>
 
         <div className="form-group">
-          <label htmlFor="distrito">Distrito</label>
+          <label htmlFor="district">Distrito</label>
           <select
-            id="distrito"
-            value={formData.distrito}
+            id="district"
+            value={formData.district}
             onChange={handleInputChange}
           >
             <option value="">Selecciona tu distrito</option>
@@ -60,51 +60,51 @@ export const Form = () => {
             ))}
           </select>
 
-          {errors.distrito && (
-            <small className="error">{errors.distrito}</small>
+          {errors.district && (
+            <small className="error">{errors.district}</small>
           )}
         </div>
 
         <div className="form-group">
-          <label htmlFor="direccion">Dirección</label>
+          <label htmlFor="direction">Dirección</label>
           <input
             type="text"
-            id="direccion"
+            id="direction"
             placeholder="Ingresa tu dirección"
-            value={formData.direccion}
+            value={formData.direction}
             onChange={handleInputChange}
           />
-          {errors.direccion && (
-            <small className="error">{errors.direccion}</small>
+          {errors.direction && (
+            <small className="error">{errors.direction}</small>
           )}
         </div>
 
         <div className="form-group">
-          <label htmlFor="referencia">Referencia</label>
+          <label htmlFor="reference">Referencia</label>
           <input
             type="text"
-            id="referencia"
+            id="reference"
             placeholder="Referencia de tu dirección"
-            value={formData.referencia}
+            value={formData.reference}
             onChange={handleInputChange}
           />
-          {errors.referencia && (
-            <small className="error">{errors.referencia}</small>
+          {errors.reference && (
+            <small className="error">{errors.reference}</small>
           )}
         </div>
 
         <div className="form-group">
-          <label htmlFor="celular">Celular</label>
+          <label htmlFor="cellphone">Celular</label>
           <input
             type="tel"
-            id="celular"
+            id="cellphone"
             placeholder="Ingresa tu número de celular"
-            value={formData.celular}
+            value={formData.cellphone}
             maxLength={9}
             minLength={9}
             onChange={handleInputChange}
           />
-          {errors.celular && <small className="error">{errors.celular}</small>}
+          {errors.cellphone && <small className="error">{errors.cellphone}</small>}
         </div>
 
         <button

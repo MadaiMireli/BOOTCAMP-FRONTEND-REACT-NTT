@@ -14,11 +14,12 @@ export const cartReducer = (
       if (isProduct) {
         return {
           ...state,
-          cart: state.cart.map((item) =>
-            item.id === action.payload.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          ),
+          cart: state.cart.map((item) => {
+            if (item.id === action.payload.id) {
+              return { ...item, quantity: item.quantity + 1 }
+            }
+            return item
+          }),
         };
       }
 
@@ -43,11 +44,12 @@ export const cartReducer = (
 
         return {
           ...state,
-          cart: state.cart.map((item) =>
-            item.id === action.payload.id
-              ? { ...item, quantity: item.quantity - 1 }
-              : item
-          ),
+          cart: state.cart.map((item) => {
+            if(item.id === action.payload.id){
+              return { ...item, quantity: item.quantity - 1 }
+            }
+            return item
+          }),
         };
       }
 
@@ -57,10 +59,12 @@ export const cartReducer = (
     case "INCREASE_ITEM": {
       return {
         ...state,
-        cart: state.cart.map((item) =>
-          item.id === action.payload.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
+        cart: state.cart.map((item) => {
+          if(item.id === action.payload.id){
+            return {...item, quantity: item.quantity + 1}
+          }
+          return item
+        }
         ),
       };
     }

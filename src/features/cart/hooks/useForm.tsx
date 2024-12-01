@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useAppContext } from "../../../common/hooks/useAppContext";
+import { FormFieldKeys, FormValidationMessages, lettersRegex, numbersRegex } from "../utils";
 
 type FormFields = {
-  nombres: string;
-  apellidos: string;
-  distrito: string;
-  direccion: string;
-  referencia: string;
-  celular: string;
+  firstName: string;
+  lastName: string;
+  district: string;
+  direction: string;
+  reference: string;
+  cellphone: string;
 };
 
 export const useForm = () => {
@@ -15,12 +16,12 @@ export const useForm = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   
   const [formData, setFormData] = useState<FormFields>({
-    nombres: "",
-    apellidos: "",
-    distrito: "",
-    direccion: "",
-    referencia: "",
-    celular: "",
+    firstName: "",
+    lastName: "",
+    district: "",
+    direction: "",
+    reference: "",
+    cellphone: "",
   });
   const [errors, setErrors] = useState<Partial<FormFields>>({});
 
@@ -28,28 +29,30 @@ export const useForm = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { id, value } = e.target;
-    setFormData({ ...formData, [id]: value });
+
+    const trimmedValue = value.trim();
+    setFormData({ ...formData, [id]: trimmedValue });
+    
+    // setFormData({ ...formData, [id]: value });
     setErrors({ ...errors, [id]: "" });
   };
 
   const validateForm = () => {
     const newErrors: Partial<FormFields> = {};
-    const lettersRegex = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/;
-    const numbersRegex = /^[0-9]+$/;
 
     Object.keys(formData).forEach((key) => {
       const value = formData[key as keyof FormFields].trim();
   
       if (!value) {
-        newErrors[key as keyof FormFields] = "Campo Obligatorio";
+        newErrors[key as keyof FormFields] = FormValidationMessages.required;
       } else {
 
-        if ((key === "nombres" || key === "apellidos") && !lettersRegex.test(value)) {
-          newErrors[key as keyof FormFields] = "Solo se permiten letras";
+        if ((key === FormFieldKeys.FIRST_NAME || key === FormFieldKeys.LAST_NAME) && !lettersRegex.test(value)) {
+          newErrors[key as keyof FormFields] = FormValidationMessages.onlyLetters;
         }
   
-        if (key === "celular" && !numbersRegex.test(value)) {
-          newErrors[key as keyof FormFields] = "Solo se permiten números";
+        if (key === FormFieldKeys.CELLPHONE && !numbersRegex.test(value)) {
+          newErrors[key as keyof FormFields] = FormValidationMessages.onlyNumbers;
         }
       }
     });
@@ -60,18 +63,18 @@ export const useForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
+    
     if (validateForm()) {
       setModalOpen(true);
       console.log(formData);
       dispatch({ type: "EMPTY_CART" });
       setFormData({
-        nombres: "",
-        apellidos: "",
-        distrito: "",
-        direccion: "",
-        referencia: "",
-        celular: "",
+        firstName: "",
+        lastName: "",
+        district: "",
+        direction: "",
+        reference: "",
+        cellphone: "",
       });
     } else {
       console.log("Errores:", errors);

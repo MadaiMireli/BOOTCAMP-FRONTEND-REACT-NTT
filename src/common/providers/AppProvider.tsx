@@ -9,15 +9,17 @@ interface Props {
     children: ReactNode
 }
 
+const initialState: IAppState = {
+    products: [],
+    cart: [],
+    productsFiltered: [],
+}
+
 const rootReducer = combineReducers(productReducer, cartReducer);
 
-export const AppProvider = ({ children }: Props) => {
 
-    const initialState: IAppState = {
-        products: [],
-        cart: [],
-        productsFiltered: [],
-    }
+
+export const AppProvider = ({ children }: Props) => {
 
     const [ state, dispatch ] = useReducer(rootReducer, initialState);
 

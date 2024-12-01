@@ -6,11 +6,11 @@ import { Link, useNavigate } from 'react-router';
 import { useAppContext } from "../../hooks/useAppContext";
 import {
   Category,
-  CategoryResponse,
-  mapperCategoryResponseToCategory,
-  ProductApiResponse,
-  mapperProductResponseToProduct,
+  // ProductApiResponse,
 } from "../../../features/product/interfaces";
+import { getCategories, getProductChangeCategory } from "../../services";
+import { RoutePages } from "../../routes";
+// import { mapperProductResponseToProduct } from "../../../features/product/mappers";
 
 export const Header = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -24,31 +24,20 @@ export const Header = () => {
 
   const fetchData = async () => {
     try {
-      const response: CategoryResponse[] = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/products/categories`
-      ).then((response) => response.json());
-      setCategories(response.map(mapperCategoryResponseToCategory));
+      const response = await getCategories()
+      setCategories(response);
     } catch (error) {
       console.error(error);
     }
   };
 
   const handleChangeCategory = async (category: string) => {
-    let urlToConsult = `${
-      import.meta.env.VITE_BASE_URL
-    }/products/category/${category}`;
-
     try {
-      if (!category) {
-        urlToConsult = `${import.meta.env.VITE_BASE_URL}/products`;
-      }
-      const response: ProductApiResponse = await fetch(urlToConsult).then(
-        (response) => response.json()
-      );
+      const response = await getProductChangeCategory(category);
 
       dispatch({
         type: "LOAD_PRODUCTS",
-        payload: response.products.map(mapperProductResponseToProduct),
+        payload: response,
       });
     } catch (error) {
       console.error(error);
@@ -61,7 +50,7 @@ export const Header = () => {
     dispatch({ type: "FILTERED_PRODUCTS", payload: query });
   };
 
-  const handleGoToCart = () => navigate('/cart');
+  const handleGoToCart = () => navigate(RoutePages.Cart);
 
   const sizeProductsInCart = state.cart.reduce(
     (total, item) => total + item.quantity,

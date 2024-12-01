@@ -2,10 +2,10 @@ import { FC } from "react";
 import { Cart } from "../../../product/interfaces";
 import { useAppContext } from "../../../../common/hooks/useAppContext";
 
-interface Prop {
+interface ItemCartProp {
   item: Cart;
 }
-export const ItemCart: FC<Prop> = ({ item }) => {
+export const ItemCart: FC<ItemCartProp> = ({ item }) => {
 
     const { dispatch } = useAppContext();
 

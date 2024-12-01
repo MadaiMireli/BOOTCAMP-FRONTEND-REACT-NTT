@@ -1,4 +1,5 @@
 import { useAppContext } from "../../../../common/hooks/useAppContext";
+import { roundToTwoDecimals } from "../../utils";
 import { ItemCart } from "../ItemCart";
 import "./CartResume.css";
 
@@ -29,7 +30,7 @@ export const CartSummary = () => {
         </tbody>
       </table>
       <div className="total">
-        Total a pagar: S/. {Math.round(totalPrice * 100) / 100}
+        Total a pagar: S/. {roundToTwoDecimals(totalPrice)}
       </div>
     </>
   );

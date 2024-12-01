@@ -1,6 +1,7 @@
 import { FC } from "react";
 import "./Modal.css";
 import { useNavigate } from 'react-router';
+import { RoutePages } from "../../routes";
 
 interface Props {
   isOpen: boolean;
@@ -25,7 +26,7 @@ export const Modal: FC<Props> = ({ isOpen, onClose, title, description }) => {
         <p>{ description }</p>
         <button className="modal-close-btn" onClick={() => {
             onClose();
-            navigate('/');
+            navigate(RoutePages.Init);
           }}>
           Cerrar
         </button>

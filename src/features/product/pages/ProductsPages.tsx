@@ -4,11 +4,8 @@ import { useEffect } from "react";
 
 import { useAppContext } from "../../../common/hooks/useAppContext";
 
-import {
-  ProductApiResponse,
-  mapperProductResponseToProduct,
-} from "../interfaces";
 import { CardProduct } from "../components";
+import { getProducts } from "../services/product.services";
 
 const ProductsPages = () => {
   const { state, dispatch } = useAppContext();
@@ -20,13 +17,11 @@ const ProductsPages = () => {
 
   const fetchData = async () => {
     try {
-      const response: ProductApiResponse = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/products`
-      ).then((response) => response.json());
+      const response = await getProducts();
 
       dispatch({
         type: "LOAD_PRODUCTS",
-        payload: response.products.map(mapperProductResponseToProduct),
+        payload: response,
       });
     } catch (error) {
       console.error(error);
