@@ -6,11 +6,9 @@ import { Link, useNavigate } from 'react-router';
 import { useAppContext } from "../../hooks/useAppContext";
 import {
   Category,
-  // ProductApiResponse,
 } from "../../../features/product/interfaces";
-import { getCategories, getProductChangeCategory } from "../../services";
+import { getCategories, getProductChangeCategory } from "../../../features/product/services";
 import { RoutePages } from "../../routes";
-// import { mapperProductResponseToProduct } from "../../../features/product/mappers";
 
 export const Header = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -94,7 +92,7 @@ export const Header = () => {
         </div>
 
         <div className="header__cart">
-          <button className="header__cart--button" onClick={handleGoToCart}>
+          <button className="header__cart--button" onClick={handleGoToCart}  aria-label="Shopping Cart">
             <ShoppingCart size={30} />
             <span className="header__cart--count">{sizeProductsInCart}</span>
           </button>

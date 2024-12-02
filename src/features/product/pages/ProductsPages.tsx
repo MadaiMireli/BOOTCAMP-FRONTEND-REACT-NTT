@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useAppContext } from "../../../common/hooks/useAppContext";
 
 import { CardProduct } from "../components";
-import { getProducts } from "../services/product.services";
+import { getProducts } from "../services";
 
 const ProductsPages = () => {
   const { state, dispatch } = useAppContext();
