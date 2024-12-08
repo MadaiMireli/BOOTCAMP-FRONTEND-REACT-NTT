@@ -46,3 +46,19 @@
 .modal-close-btn:hover {
     background: #45a049;
 }
+
+.mt-children {
+    margin-top: 20px;
+}
+
+.container_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.cancel-content-button {
+    cursor: pointer;
+}

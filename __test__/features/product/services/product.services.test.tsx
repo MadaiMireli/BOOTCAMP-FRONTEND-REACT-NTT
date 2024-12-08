@@ -33,7 +33,6 @@ const mockFetch = (data: any, status = 200, ok = true) => {
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith(`${BASE_URL}/products/categories`);
   
-      // Validar que response tenga la estructura procesada
       expect(response).toEqual(
         categoriesResponseMock.map((category) => ({
           id: category.slug,

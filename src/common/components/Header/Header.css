@@ -260,3 +260,18 @@ input:focus {
   }
 
 }
+
+.header__chip {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  button {
+    border: 0;
+    background-color:transparent;
+    color: var(--primary-color);
+    font-size: 15px;
+    font: 400;
+    cursor: pointer;
+  }
+}

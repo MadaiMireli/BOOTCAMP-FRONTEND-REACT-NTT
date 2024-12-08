@@ -33,7 +33,6 @@ export const useForm = () => {
     const trimmedValue = value.trim();
     setFormData({ ...formData, [id]: trimmedValue });
     
-    // setFormData({ ...formData, [id]: value });
     setErrors({ ...errors, [id]: "" });
   };
 

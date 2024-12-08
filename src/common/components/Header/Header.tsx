@@ -1,14 +1,17 @@
-import "./Header.css"
+import "./Header.css";
 import { SearchNormal1, ShoppingCart } from "iconsax-react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from "react-router";
 
 import { useAppContext } from "../../hooks/useAppContext";
+import { Category } from "../../../features/product/interfaces";
 import {
-  Category,
-} from "../../../features/product/interfaces";
-import { getCategories, getProductChangeCategory } from "../../../features/product/services";
+  getCategories,
+  getProductChangeCategory,
+} from "../../../features/product/services";
 import { RoutePages } from "../../routes";
+import { LocalStorageKeys } from "@/common/constants";
+import { User } from "@/features/auth/interfaces/user";
 
 export const Header = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -22,12 +25,16 @@ export const Header = () => {
 
   const fetchData = async () => {
     try {
-      const response = await getCategories()
+      const response = await getCategories();
       setCategories(response);
     } catch (error) {
       console.error(error);
     }
   };
+
+  const userLogged: User = JSON.parse(
+    localStorage.getItem(LocalStorageKeys.information) || "{}"
+  );
 
   const handleChangeCategory = async (category: string) => {
     try {
@@ -43,8 +50,6 @@ export const Header = () => {
   };
 
   const handleSearch = (query: string) => {
-    if (!query) return;
-
     dispatch({ type: "FILTERED_PRODUCTS", payload: query });
   };
 
@@ -55,15 +60,21 @@ export const Header = () => {
     0
   );
 
+  const handleCloseSession = () => {
+    navigate(RoutePages.Auth);
+    localStorage.clear();
+  };
+
   return (
     <>
       <div className="header">
         <div className="header__logo">
-          <img
-            src="https://res.cloudinary.com/dehba8l6b/image/upload/v1732413855/logoVN_kf1fdr.png"
-            alt="Logo Viva Natura"
-          />
-          <Link to="/">VIVA NATURA</Link>
+          <Link to={RoutePages.Init}>
+            <img
+              src="https://res.cloudinary.com/dehba8l6b/image/upload/v1732413855/logoVN_kf1fdr.png"
+              alt="Logo Viva Natura"
+            />
+          </Link>
         </div>
         <div className="header__category">
           <select
@@ -92,8 +103,12 @@ export const Header = () => {
         </div>
 
         <div className="header__cart">
-          <button className="header__cart--button" onClick={handleGoToCart}  aria-label="Shopping Cart">
-            <ShoppingCart size={30} />
+          <button
+            className="header__cart--button"
+            onClick={handleGoToCart}
+            aria-label="Shopping Cart"
+          >
+            <ShoppingCart size={30} onClick={handleGoToCart} />
             <span className="header__cart--count">{sizeProductsInCart}</span>
           </button>
         </div>
@@ -101,12 +116,14 @@ export const Header = () => {
         <div className="header__user">
           <button className="header__user--button">
             <a href="#" className="header__user--avatar">
-              <img
-                src="https://res.cloudinary.com/dehba8l6b/image/upload/v1732313890/avatar_fkbgpm.jpg"
-                alt="Foto de Perfil"
-              />
+              <img src={userLogged.image} alt="Foto de Perfil" />
             </a>
           </button>
+        </div>
+
+        <div className="header__chip">
+          Bienvenid@, {userLogged.firstName}
+          <button onClick={handleCloseSession}>Cerrar sesión</button>
         </div>
       </div>
     </>
