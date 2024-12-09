@@ -37,3 +37,8 @@ feature/react-implementacion
 - Para tener los cambios o dependencia agregada, ejecutar el comando: npm i
 - Para ejecutar el proyecto usar: npm run dev.
 - Validaciones en el form, para celular solo numeros; nombres y apellidos solo letras.
+
+feature/proyecto-integrador
+- Implementación del login.
+- HOC(validar la autenticación para ingresar al market.)
+- Uso de vertical Slicing y Screaming Architecture para escalar y mantener el código.

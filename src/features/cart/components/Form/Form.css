@@ -1,4 +1,4 @@
-.shipping-form {
+.shipping__form {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -10,18 +10,18 @@
     font-size: 1.5em;
 }
 
-.form-group {
+.form__group {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.form-group label {
+.form__group label {
     font-weight: 500;
 }
 
-.form-group input,
-.form-group select {
+.form__group input,
+.form__group select {
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;

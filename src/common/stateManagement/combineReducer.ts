@@ -10,8 +10,8 @@ export const combineReducers = (
 
     return {
       ...state,
-      ...cartReducer(state, action as TCartAction),
-      ...productReducer(state, action as TProductAction)
+      ...productReducer(state, action as TProductAction),
+      ...cartReducer(state, action as TCartAction)
     }
   };
 };

@@ -7,6 +7,7 @@ export enum FormFieldKeys {
 export enum FormValidationMessages {
     required = "Campo Obligatorio",
     onlyLetters = "Solo se permiten letras",
-    onlyNumbers = "Solo se permiten números"
+    onlyNumbers = "Solo se permiten números",
+    notSpaces = "El campo no debe comenzar con espacios en blanco"
 
 }

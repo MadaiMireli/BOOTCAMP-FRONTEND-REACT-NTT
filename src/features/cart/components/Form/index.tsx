@@ -18,8 +18,8 @@ export const Form = () => {
   return (
     <>
       <h2 className="form-title">Información de Envío</h2>
-      <form className="shipping-form" onSubmit={handleSubmit}>
-        <div className="form-group">
+      <form className="shipping__form" onSubmit={handleSubmit}>
+        <div className="form__group">
           <label htmlFor="firstName">Nombres</label>
           <input
             type="text"
@@ -31,7 +31,7 @@ export const Form = () => {
           {errors.firstName && <small className="error">{errors.firstName}</small>}
         </div>
 
-        <div className="form-group">
+        <div className="form__group">
           <label htmlFor="lastName">Apellidos</label>
           <input
             type="text"
@@ -45,7 +45,7 @@ export const Form = () => {
           )}
         </div>
 
-        <div className="form-group">
+        <div className="form__group">
           <label htmlFor="district">Distrito</label>
           <select
             id="district"
@@ -65,7 +65,7 @@ export const Form = () => {
           )}
         </div>
 
-        <div className="form-group">
+        <div className="form__group">
           <label htmlFor="direction">Dirección</label>
           <input
             type="text"
@@ -79,7 +79,7 @@ export const Form = () => {
           )}
         </div>
 
-        <div className="form-group">
+        <div className="form__group">
           <label htmlFor="reference">Referencia</label>
           <input
             type="text"
@@ -93,7 +93,7 @@ export const Form = () => {
           )}
         </div>
 
-        <div className="form-group">
+        <div className="form__group">
           <label htmlFor="cellphone">Celular</label>
           <input
             type="tel"

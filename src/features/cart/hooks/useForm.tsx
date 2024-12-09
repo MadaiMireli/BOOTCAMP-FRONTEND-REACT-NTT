@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAppContext } from "../../../common/hooks/useAppContext";
-import { FormFieldKeys, FormValidationMessages, lettersRegex, numbersRegex } from "../utils";
+import { FormFieldKeys, FormValidationMessages, lettersRegex, numbersRegex, spaceRegex } from "../utils";
 
 type FormFields = {
   firstName: string;
@@ -30,8 +30,7 @@ export const useForm = () => {
   ) => {
     const { id, value } = e.target;
 
-    const trimmedValue = value.trim();
-    setFormData({ ...formData, [id]: trimmedValue });
+    setFormData({ ...formData, [id]: value });
     
     setErrors({ ...errors, [id]: "" });
   };
@@ -46,6 +45,10 @@ export const useForm = () => {
         newErrors[key as keyof FormFields] = FormValidationMessages.required;
       } else {
 
+        if (!spaceRegex.test(formData[key as keyof FormFields])) {
+          newErrors[key as keyof FormFields] = FormValidationMessages.notSpaces;
+        }
+        
         if ((key === FormFieldKeys.FIRST_NAME || key === FormFieldKeys.LAST_NAME) && !lettersRegex.test(value)) {
           newErrors[key as keyof FormFields] = FormValidationMessages.onlyLetters;
         }

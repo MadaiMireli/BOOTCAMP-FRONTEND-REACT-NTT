@@ -35,7 +35,7 @@ const ProductsPages = () => {
 
   return (
     <>
-      {state.productsFiltered.length > 0 ? (
+      {state.productsFiltered.length !== 0 ? (
         <>
           <main className="main">
             {state.productsFiltered.map((product) => (
@@ -52,7 +52,9 @@ const ProductsPages = () => {
           </div>
         </>
       ) : (
-        <h2>No hay productos</h2>
+        <div className="main">
+          <h2 className="main__text">No hay productos</h2>
+        </div>
       )}
     </>
   );
