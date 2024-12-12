@@ -1,3 +1,4 @@
+// falta test
 import "./Header.css"
 import { SearchNormal1, ShoppingCart } from "iconsax-react";
 import { useEffect, useState } from "react";

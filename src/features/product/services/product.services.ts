@@ -1,3 +1,4 @@
+// falta test
 import { CategoryResponse, ProductApiResponse } from "../interfaces";
 import { mapperCategoryResponseToCategory, mapperProductResponseToProduct } from "../mappers";
 import {BASE_URL} from "../../../global";

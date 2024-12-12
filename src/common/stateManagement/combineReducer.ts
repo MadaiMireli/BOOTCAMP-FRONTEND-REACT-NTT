@@ -1,3 +1,4 @@
+// falta test
 import { TCartAction } from "../../features/cart/stateManagement/action";
 import { TProductAction } from "../../features/product/stateManagement/action";
 import { IAppState } from "../context/AppContext";
